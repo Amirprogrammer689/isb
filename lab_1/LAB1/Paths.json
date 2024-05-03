@@ -1,0 +1,6 @@
+{
+  "key_file_path": "/Users/amirbajmukasev/isb/lab_1/LAB1/Key.json",
+  "text_file_path": "/Users/amirbajmukasev/isb/lab_1/LAB1/Texts/Text.txt",
+  "encrypted_file_path": "/Users/amirbajmukasev/isb/lab_1/LAB1/Texts/Encrypted.txt",
+  "decrypted_file_path": "/Users/amirbajmukasev/isb/lab_1/LAB1/Texts/Decrypted.txt"
+}
