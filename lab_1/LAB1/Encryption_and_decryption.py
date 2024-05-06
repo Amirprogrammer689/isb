@@ -1,4 +1,4 @@
-def caesar_cipher_encrypt(text, key):
+def caesar_cipher_encrypt(text: str, key: int) -> str:
     """
     Encrypts the text using Caesar cipher.
 
@@ -23,7 +23,7 @@ def caesar_cipher_encrypt(text, key):
     return encrypted_text
 
 
-def caesar_cipher_decrypt(text, key):
+def caesar_cipher_decrypt(text: str, key: int) -> str:
     """
     Decrypts the text using Caesar cipher.
 

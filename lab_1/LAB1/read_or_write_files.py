@@ -1,7 +1,7 @@
 import json
 
 
-def read_text_from_file(file_path):
+def read_text_from_file(file_path: str) -> str:
     """
     Read text data from a file.
 
@@ -21,7 +21,7 @@ def read_text_from_file(file_path):
         print(f"An error has occurred: {e}")
 
 
-def write_text_to_file(file_path, text):
+def write_text_to_file(file_path: str, text: str) -> None:
     """
     Write text data to a file.
 
@@ -37,7 +37,7 @@ def write_text_to_file(file_path, text):
         print(f"An error occurred while writing to the file: {e}")
 
 
-def read_json_from_file(file_path):
+def read_json_from_file(file_path: str) -> dict:
     """
     Read JSON data from a file.
 
@@ -59,36 +59,15 @@ def read_json_from_file(file_path):
         print(f"An error has occurred: {e}")
 
 
-def validate_json(data):
-    """
-    Validate if the data can be converted to JSON format.
-
-    Parameters:
-    data: The data to validate.
-
-    Returns:
-    bool: True if the data can be converted to JSON, False otherwise.
-    """
-    try:
-        json.dumps(data)
-        return True
-    except Exception as e:
-        print(f"Invalid JSON data: {e}")
-        return False
-
-
-def write_json_to_file(file_path, data, indent=4):
+def write_json_to_file(file_path: str, data: dict, indent: int = 4) -> None:
     """
     Write JSON data to a file.
 
     Parameters:
     file_path (str): The path to the file to write.
-    data: The JSON data to write.
-    indent (int): Indentation level for the JSON output (default is 4).
+    data (dict): The JSON data to write to the file.
+    indent (int): The number of spaces for indentation in the JSON output (default is 4).
     """
-    if not validate_json(data):
-        print("Data does not match the JSON format. File was not written.")
-        return
     try:
         with open(file_path, 'w', encoding='utf-8') as file:
             json.dump(data, file, ensure_ascii=False, indent=indent)

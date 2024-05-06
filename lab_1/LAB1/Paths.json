@@ -1,6 +1,11 @@
 {
-  "key_file_path": "/Users/amirbajmukasev/isb/lab_1/LAB1/Key.json",
+  "key_file_path": "/Users/amirbajmukasev/isb/lab_1/LAB1/Json/Key.json",
   "text_file_path": "/Users/amirbajmukasev/isb/lab_1/LAB1/Texts/Text.txt",
+  "text_2_file_path": "/Users/amirbajmukasev/isb/lab_1/LAB1/Texts2/cod2.txt",
+  "decrypted_text_2_file_path": "/Users/amirbajmukasev/isb/lab_1/LAB1/Texts2/Text2.txt",
   "encrypted_file_path": "/Users/amirbajmukasev/isb/lab_1/LAB1/Texts/Encrypted.txt",
-  "decrypted_file_path": "/Users/amirbajmukasev/isb/lab_1/LAB1/Texts/Decrypted.txt"
+  "decrypted_file_path": "/Users/amirbajmukasev/isb/lab_1/LAB1/Texts/Decrypted.txt",
+  "decryption_key_file_2_path": "/Users/amirbajmukasev/isb/lab_1/LAB1/Json/Decryption_key_2.json",
+  "freq_2_path": "/Users/amirbajmukasev/isb/lab_1/LAB1/Json/Freq.json",
+  "data_2_path": "/Users/amirbajmukasev/isb/lab_1/LAB1/Json/Data.json"
 }
