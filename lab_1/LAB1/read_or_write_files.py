@@ -15,8 +15,8 @@ def read_text_from_file(file_path: str) -> str:
         with open(file_path, 'r', encoding='utf-8') as file:
             text = file.read()
         return text
-    except FileNotFoundError:
-        print("File not found.")
+    except FileNotFoundError as e:
+        print(f"File not found: {e}")
     except Exception as e:
         print(f"An error has occurred: {e}")
 
@@ -33,6 +33,8 @@ def write_text_to_file(file_path: str, text: str) -> None:
         with open(file_path, 'w', encoding='utf-8') as file:
             file.write(text)
         print("The information is successfully saved to the file.")
+    except FileNotFoundError as e:
+        print(f"File not found: {e}")
     except Exception as e:
         print(f"An error occurred while writing to the file: {e}")
 
@@ -51,8 +53,8 @@ def read_json_from_file(file_path: str) -> dict:
         with open(file_path, 'r', encoding='utf-8') as file:
             data = json.load(file)
         return data
-    except FileNotFoundError:
-        print("File not found.")
+    except FileNotFoundError as e:
+        print(f"File not found: {e}")
     except json.JSONDecodeError as e:
         print(f"Error while decoding JSON: {e}")
     except Exception as e:

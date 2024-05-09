@@ -1,3 +1,6 @@
+ALPHABET_RUS = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя1234567890 :;,.!?{}()-+=_"'
+
+
 def caesar_cipher_encrypt(text: str, key: int) -> str:
     """
     Encrypts the text using Caesar cipher.
@@ -10,7 +13,7 @@ def caesar_cipher_encrypt(text: str, key: int) -> str:
     str: The encrypted text.
     """
     encrypted_text = ''
-    alphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя1234567890 :;,.!?{}()-+=_"'
+    alphabet = ALPHABET_RUS
 
     for char in text:
         if char in alphabet:
