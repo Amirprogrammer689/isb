@@ -23,6 +23,8 @@ def nist_frequency_bit_test(bit_sequence: str, file_path: str, key: str) -> None
         s_n = sum(sequence_else) / math.sqrt(len(sequence_else))
         p_v = math.erfc(math.fabs(s_n) / math.sqrt(2))
         write_text_to_file(file_path, f'{key} : {p_v}\n')
+    except ZeroDivisionError:
+        print("Frequency bit test. Error: Division by zero")
     except Exception as e:
         print("Frequency bit test. Error: ", e)
 
@@ -50,12 +52,12 @@ def nist_identical_serial_bits(bit_sequence: str, file_path: str, key: str) -> N
                     v += 1
             numerator = abs(v - 2 * n * share_of_unit * (1 - share_of_unit))
             denominator = 2 * math.sqrt(2 * n) * share_of_unit * (1 - share_of_unit)
-            p_v = math.erfc(numerator / denominator)
-        else:
-            p_v = 0
-        write_text_to_file(file_path, f'{key} : {p_v}\n')
+            p_v = math.exp(numerator / denominator)
+            write_text_to_file(file_path, f'{key} : {p_v}\n')
+    except ZeroDivisionError:
+        print("Identical serial bits test. Error: Division by zero")
     except Exception as e:
-        print("Test for identical consecutive bits. Error: ", e)
+        print("Identical serial bits test. Error: ", e)
 
 
 def nist_longest_sequence(bit_sequence: str, file_path: str, key: str) -> None:
