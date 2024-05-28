@@ -1,0 +1,8 @@
+{
+  "initial_file_path": "Texts/Text.txt",
+  "encrypted_file_path": "Texts/Encrypted_text.txt",
+  "decrypted_file_path": "Texts/Decrypted_text.txt",
+  "public_key_path": "Keys/Public_key.txt",
+  "secret_key_path": "Keys/Secret_key.txt",
+  "symmetric_key_path": "Keys/Symmetric_key.txt"
+}
