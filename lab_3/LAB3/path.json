@@ -1,8 +1,8 @@
 {
-  "initial_file_path": "Texts/Text.txt",
-  "encrypted_file_path": "Texts/Encrypted_text.txt",
-  "decrypted_file_path": "Texts/Decrypted_text.txt",
-  "public_key_path": "Keys/Public_key.txt",
-  "secret_key_path": "Keys/Secret_key.txt",
-  "symmetric_key_path": "Keys/Symmetric_key.txt"
+  "initial_file_path": "/Users/amirbajmukasev/isb/lab_3/LAB3/Texts/Text.txt",
+  "encrypted_file_path": "/Users/amirbajmukasev/isb/lab_3/LAB3/Texts/Encrypted_text.txt",
+  "decrypted_file_path": "/Users/amirbajmukasev/isb/lab_3/LAB3/Texts/Decrypted_text.txt",
+  "public_key_path": "/Users/amirbajmukasev/isb/lab_3/LAB3/Keys/Public_key.pem",
+  "secret_key_path": "/Users/amirbajmukasev/isb/lab_3/LAB3/Keys/Secret_key.pem",
+  "symmetric_key_path": "/Users/amirbajmukasev/isb/lab_3/LAB3/Keys/Symmetric_key.txt"
 }
