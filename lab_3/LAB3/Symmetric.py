@@ -10,7 +10,6 @@ class SymmetricCryptography:
     """
     A class for symmetric cryptography operations.
     """
-
     def __init__(self):
         self.key = None
 
@@ -27,7 +26,7 @@ class SymmetricCryptography:
         if size_key not in [128, 192, 256]:
             raise ValueError("Invalid key length. Please choose 128, 192, or 256 bits.")
 
-        self.key = os.urandom(size_key)
+        self.key = os.urandom(size_key // 8)
         return self.key
 
     def key_serialization(self, path: str) -> None:

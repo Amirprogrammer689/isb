@@ -11,11 +11,11 @@ def write_text_to_file(file_path: str, text: str) -> None:
     try:
         with open(file_path, 'a+', encoding='utf-8') as file:
             file.write(text)
-        print("The information is successfully saved to the file.")
+        print("\033[91;107mThe information is successfully saved to the file.\033[0m")
     except FileNotFoundError as e:
-        print(f"File not found: {e}")
+        print(f"\033[97;41mFile not found: {e}\033[0m")
     except Exception as e:
-        print(f"An error occurred while writing to the file: {e}")
+        print(f"\033[97;41mAn error occurred while writing to the file: {e}\033[0m")
 
 
 def read_json_from_file(file_path: str) -> dict:
@@ -31,11 +31,11 @@ def read_json_from_file(file_path: str) -> dict:
             data = json.load(file)
         return data
     except FileNotFoundError as e:
-        print(f"File not found: {e}")
+        print(f"\033[97;41mFile not found: {e}\033[0m")
     except json.JSONDecodeError as e:
-        print(f"Error while decoding JSON: {e}")
+        print(f"\033[97;41mError while decoding JSON: {e}\033[0m")
     except Exception as e:
-        print(f"An error has occurred: {e}")
+        print(f"\033[97;41mAn error has occurred: {e}\033[0m")
 
 
 def read_binary_from_file(file_path: str) -> bytes:
@@ -51,9 +51,9 @@ def read_binary_from_file(file_path: str) -> bytes:
             data = file.read()
         return data
     except FileNotFoundError as e:
-        print(f"File not found: {e}")
+        print(f"\033[97;41mFile not found: {e}\033[0m")
     except Exception as e:
-        print(f"An error occurred while reading the file: {e}")
+        print(f"\033[97;41mAn error occurred while reading the file: {e}\033[0m")
 
 
 def write_binary_to_file(file_path: str, bytes_text: bytes) -> None:
@@ -66,8 +66,8 @@ def write_binary_to_file(file_path: str, bytes_text: bytes) -> None:
     try:
         with open(file_path, 'wb') as file:
             file.write(bytes_text)
-        print("The binary data has been successfully saved to the file.")
+        print("\033[91;107mThe binary data has been successfully saved to the file.\033[0m")
     except FileNotFoundError as e:
-        print(f"File not found: {e}")
+        print(f"\033[97;41mFile not found: {e}\033[0m")
     except Exception as e:
-        print(f"An error occurred while writing the binary data to the file: {e}")
+        print(f"\033[97;41mAn error occurred while writing the binary data to the file: {e}\033[0m")
