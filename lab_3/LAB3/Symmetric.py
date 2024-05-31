@@ -29,6 +29,36 @@ class SymmetricCryptography:
         self.key = os.urandom(size_key // 8)
         return self.key
 
+    def load_custom_key(self, path: str) -> None:
+        """
+        Load a custom symmetric key from a file.
+
+        Parameters:
+        path (str): The path to the file containing the custom key.
+        """
+        try:
+            with open(path, 'rb') as key_file:
+                self.key = key_file.read()
+        except FileNotFoundError as e:
+            print(f"File not found: {e}")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
+    def save_generated_key(self, path: str) -> None:
+        """
+        Save the generated symmetric key to a file.
+
+        Parameters:
+        path (str): The path to save the generated key.
+        """
+        try:
+            with open(path, 'wb') as key_file:
+                key_file.write(self.key)
+        except FileNotFoundError as e:
+            print(f"File not found: {e}")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
     def key_serialization(self, path: str) -> None:
         """
         Serialize the encryption key to a file.

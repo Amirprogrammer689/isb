@@ -8,6 +8,13 @@ from read_or_write_files import *
 
 
 def loading_animation():
+    """
+    Display a loading animation with progress bar.
+
+    This function displays a loading animation with a progress bar that fills up as the loading progresses.
+    The progress bar changes from '▢' to '▣' as the loading reaches completion.
+    Upon completion, it prints a message 'Loading completed!' in red color with a smiling face emoji.
+    """
     toolbar_width = 40
     sys.stdout.write("Loading: ")
     sys.stdout.flush()
@@ -31,8 +38,14 @@ def loading_animation():
 
 
 def menu():
-    paths = read_json_from_file("path.json")
+    """
+    Displays a menu for selecting various cryptographic operations.
+
+    This feature provides a menu with options for generating keys, encrypting and decrypting files.
+    It reads paths from a JSON file, parses command line arguments.
+    """
     parser = argparse.ArgumentParser()
+    paths = read_json_from_file("path.json")
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument('-gen', '--generation', help='Generate symmetric and asymmetric keys')
     group.add_argument('-enc', '--encryption', help='Encrypt a file using symmetric key')
@@ -48,16 +61,21 @@ def menu():
 
     match args:
         case args if args.generation:
-            key_length = int(input(
-                "\033[91;107mEnter the key length in bits, in the range [128, 192, 256]:\033[0;92m "
-            ))
-            print(f"\033[91;107mYour key length:\033[0;95m {key_length} \033[0m")
-            loading_animation()
-            asym.generate_keys()
-            asym.serialization_private(paths["secret_key_path"])
-            asym.serialization_public(paths["public_key_path"])
-            sym.generation_key(key_length)
-            sym.key_serialization(paths["symmetric_key_path"])
+            key_choice = input("\033[91;107mDo you want to use a custom symmetric key? (yes/no):\033[0;92m ")
+            if key_choice.lower() == 'yes':
+                custom_key_path = input("\033[91;107mEnter the path to your custom symmetric key file:\033[0;92m ")
+                sym.load_custom_key(custom_key_path)
+            else:
+                key_length = int(input(
+                    "\033[91;107mEnter the key length in bits, in the range [128, 192, 256]:\033[0;92m "
+                ))
+                print(f"\033[91;107mYour key length:\033[0;95m {key_length} \033[0m")
+                loading_animation()
+                asym.generate_keys()
+                asym.serialization_private(paths["secret_key_path"])
+                asym.serialization_public(paths["public_key_path"])
+                sym.generation_key(key_length)
+                sym.save_generated_key(paths["symmetric_key_path"])
         case args if args.encryption:
             sym.key_deserialization(paths["symmetric_key_path"])
             sym.encrypt(paths["initial_file_path"], paths["encrypted_file_path"])
